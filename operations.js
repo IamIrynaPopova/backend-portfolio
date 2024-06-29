@@ -6,7 +6,6 @@ const getFormData = async (req, res) => {
   const token = process.env.API_KEY;
   const url = process.env.API_URL;
   const chatId = process.env.API_ID;
-
   const message = `<strong>Контакти з сайту:</strong>\n<u>${name}</u>\n<i>${tel}</i>\n<i>${email}</i>\n<b>${feedback}</b>`;
 
   try {
@@ -17,7 +16,7 @@ const getFormData = async (req, res) => {
     });
     res.json({ message: "Дані успішно отримано на сервері!" });
   } catch (error) {
-    res.status(500).json({ message: "Помилка відправки данних", error: error.message });
+    res.json({ message: "Помилка на стороні сервера" });
   }
 };
 
