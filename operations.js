@@ -14,9 +14,11 @@ const getFormData = async (req, res) => {
       parse_mode: "html",
       text: message,
     });
-    res.json({ message: "Дані успішно отримано на сервері!" });
+    res.json({ message: 'Дані успішно отримано на сервері ;)' });
   } catch (error) {
-    res.json({ message: "Помилка на стороні сервера" });
+      res
+        .status(500)
+        .json({ message: "Помилка на сервері", error: error.message });
   }
 };
 
