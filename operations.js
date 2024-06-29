@@ -17,7 +17,7 @@ const getFormData = async (req, res) => {
     });
     res.json({ message: "Дані успішно отримано на сервері!" });
   } catch (error) {
-    console.error("Error sending message:", error);
+    res.status(500).json({ message: "Помилка відправки данних", error: error.message });
   }
 };
 
